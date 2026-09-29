@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pokémon Race</title>
+<style>
+  @font-face { font-family: 'Power Clear'; src: url('assets/fonts/power clear.ttf'); }
+  @font-face { font-family: 'Power Clear Bold'; src: url('assets/fonts/power clear bold.ttf'); }
+  @font-face { font-family: 'Power Green'; src: url('assets/fonts/power green.ttf'); }
+  @font-face { font-family: 'Power Green Small'; src: url('assets/fonts/power green small.ttf'); }
+  html, body { margin: 0; height: 100%; background: #101018; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center; }
+  canvas { image-rendering: pixelated; image-rendering: crisp-edges; background: #000; }
+</style>
+</head>
+<body>
+<canvas id="game" width="1024" height="384"></canvas>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

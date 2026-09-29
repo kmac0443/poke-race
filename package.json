@@ -1,0 +1,13 @@
+{
+  "name": "pokemon-race",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Train your Pokémon with math, then race it (personal, non-commercial)",
+  "scripts": {
+    "start": "node server.js",
+    "shot": "node tools/shot.js"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^23.11.1"
+  }
+}

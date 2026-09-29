@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pokémon Race · Parents</title>
+<style>
+  :root { --bg: #f4f2ec; --card: #fff; --ink: #2a2a30; --muted: #76767e; --line: #dddad0; --accent: #3870e0;
+          --custom: #d9822b; --p0: #e04838; --p1: #3870e0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.45 system-ui, "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); }
+  header { position: sticky; top: 0; z-index: 2; background: #283048; color: #fff; padding: 10px 20px;
+           display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  header h1 { font-size: 18px; margin: 0 12px 0 0; }
+  .tabs button { font: inherit; border: 0; padding: 8px 18px; border-radius: 6px 6px 0 0; cursor: pointer;
+                 background: #3c4664; color: #cfd6ea; }
+  .tabs button.on { background: var(--bg); color: var(--ink); font-weight: 600; }
+  header .note { margin-left: auto; font-size: 13px; color: #b8c0d8; }
+  main { max-width: 1040px; margin: 0 auto; padding: 20px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 16px 20px; margin-bottom: 18px; }
+  section h2 { font-size: 17px; margin: 0 0 12px; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 8px 0; }
+  .row > label:first-child { min-width: 170px; font-weight: 600; }
+  .hint { color: var(--muted); font-size: 13px; }
+  .badge { font-size: 12px; padding: 1px 8px; border-radius: 10px; background: #ecebe6; color: var(--muted); }
+  .badge.custom { background: #fbe9d6; color: var(--custom); font-weight: 600; }
+  button, select, input { font: inherit; }
+  button.small { font-size: 13px; padding: 2px 8px; cursor: pointer; }
+  input[type=text], input[type=search], input[type=number], select { padding: 4px 8px; border: 1px solid #c8c4b8; border-radius: 4px; }
+  .avatars { display: flex; gap: 8px; }
+  .avatars label { border: 2px solid transparent; border-radius: 8px; cursor: pointer; padding: 2px; }
+  .avatars label.on { border-color: var(--accent); background: #eaf0fc; }
+  .avatars input { display: none; }
+  .avatars img { width: 80px; height: 80px; image-rendering: pixelated; display: block; }
+  .mon-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 8px; margin: 10px 0; }
+  .mon { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px; }
+  .mon img.front { width: 64px; height: 64px; image-rendering: pixelated; }
+  .mon .info { flex: 1; min-width: 0; }
+  .mon .name { font-weight: 600; }
+  .growth { font-size: 11px; line-height: 1.3; letter-spacing: -1px; }
+  .growth span { display: block; white-space: nowrap; }
+  .mon .btns { flex: none; }
+  .run { width: 64px; height: 64px; background-size: 256px 256px; background-position-y: -128px;
+         image-rendering: pixelated; animation: run .5s steps(4) infinite; flex: none; }
+  @keyframes run { from { background-position-x: 0; } to { background-position-x: -256px; } }
+  .results { max-height: 520px; overflow-y: auto; }
+  .eevee { display: flex; gap: 6px; flex-wrap: wrap; }
+  .eevee label { text-align: center; border: 1px solid var(--line); border-radius: 6px; padding: 4px; cursor: pointer; width: 96px; font-size: 13px; }
+  .eevee img { width: 64px; height: 64px; image-rendering: pixelated; display: block; margin: 0 auto; }
+  .eevee input:not(:checked) + img { filter: grayscale(1); opacity: .4; }
+  .warn { color: #b03020; font-size: 13px; }
+  .swatches { display: flex; gap: 6px; }
+  .swatch { width: 30px; height: 30px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 1px #bbb; cursor: pointer; }
+  .swatch.on { box-shadow: 0 0 0 3px var(--ink); }
+  .swatch:disabled { opacity: .25; cursor: not-allowed; }
+  .owned { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 10px; margin: 10px 0; }
+  .card { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+  .card.following { border-color: var(--accent); box-shadow: 0 0 0 2px #dbe5fb; }
+  .card .top { display: flex; align-items: center; gap: 8px; }
+  .card img.front { width: 72px; height: 72px; image-rendering: pixelated; }
+  .card .stats { display: grid; grid-template-columns: auto 64px auto 64px; gap: 4px 8px; align-items: center; margin-top: 6px; font-size: 13px; }
+  .card .stats input { width: 64px; }
+  .card .stats label { white-space: nowrap; }
+  .card .actions { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .fc-summary { display: flex; gap: 18px; flex-wrap: wrap; margin: 6px 0 10px; }
+  .fc-summary b { font-size: 18px; display: block; }
+  .fc-next { display: flex; gap: 6px; flex-wrap: wrap; }
+  .fc-next span { font-weight: 600; padding: 2px 10px; border-radius: 12px; background: #eaf0fc; }
+  .recent { font-family: ui-monospace, monospace; letter-spacing: 1px; }
+  .recent .x { color: #c03020; } .recent .v { color: #2a8a3a; }
+  details.level { border-top: 1px solid var(--line); padding: 6px 0; }
+  details.level summary { cursor: pointer; font-weight: 600; }
+  details.level summary .hint { font-weight: 400; margin-left: 8px; }
+  .fc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(62px, 1fr)); gap: 4px; margin: 8px 0; }
+  .fc { font: 13px/1.2 system-ui, sans-serif; border: 1px solid rgba(0,0,0,.12); border-radius: 4px; padding: 3px 2px;
+        text-align: center; cursor: pointer; background: #f0eee8; color: #99968c; }
+  .fc small { display: block; font-size: 10px; opacity: .8; }
+  .fc.b0 { background: #f7c9c0; color: #7a1d10; } .fc.b1 { background: #fbe0b8; color: #6b4210; }
+  .fc.b2 { background: #fbf0b0; color: #5a5010; } .fc.b3 { background: #d8efc0; color: #2e5a10; }
+  .fc.b4 { background: #b8e4a0; color: #1f4a08; } .fc.b5 { background: #90d480; color: #143a04; }
+  .fc.due { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .fc.queued { box-shadow: inset 0 -3px 0 var(--accent); }
+  .legend { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 12px; }
+  .legend .fc { cursor: default; min-width: 70px; }
+  .things { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 8px; margin: 8px 0 14px; }
+  .thing { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px; }
+  .thing .pic { width: 48px; height: 48px; flex: none; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .thing .pic img { max-width: 48px; max-height: 48px; image-rendering: pixelated; }
+  .thing .pic div { image-rendering: pixelated; transform-origin: center; }
+  .thing .info { flex: 1; min-width: 0; font-size: 13px; }
+  .thing .info b { display: block; font-size: 14px; }
+  .thing .count { display: flex; align-items: center; gap: 4px; }
+  .thing .count span { min-width: 22px; text-align: center; font-weight: 600; }
+  .tag { font-size: 12px; background: #eaf0fc; color: var(--accent); padding: 1px 8px; border-radius: 10px; font-weight: 600; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Pokémon Race · Parents</h1>
+  <nav class="tabs" id="tabs"></nav>
+  <span class="note">Changes save as you make them. The game picks them up even while it's open.</span>
+</header>
+<main>
+  <section id="player"></section>
+  <section id="owned"></section>
+  <section id="house"></section>
+  <section id="math"></section>
+  <section id="cards"></section>
+  <section id="pokemon"></section>
+  <section id="pacing"></section>
+</main>
+<script type="module" src="src/admin.js"></script>
+</body>
+</html>

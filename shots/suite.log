@@ -1,0 +1,23 @@
+ok: 59 moves, 13 pickable species, 21 evolution lines (+ 284 species with default goals), 10 levels
+all ok
+all ok
+=== shell
+=== farm
+=== speed
+=== strength
+=== defense
+=== escape
+=== race
+=== earn
+=== shop
+=== care
+=== house
+SCRIPT ERROR Error: FAILED: two brick blocks: [{"x":7,"y":8,"style":"brick"}]
+=== evolve
+=== tellapart
+=== admin
+=== admin-played
+=== admin-cards
+=== admin-house
+=== race-look
+SUITE-DONE

@@ -1,0 +1,111 @@
+[
+ {
+  "id": 0,
+  "name": "None"
+ },
+ {
+  "id": 1,
+  "name": "Ledge",
+  "ledge": true
+ },
+ {
+  "id": 2,
+  "name": "Grass",
+  "wildEncounters": true,
+  "grassRustle": true,
+  "battleBack": "grass"
+ },
+ {
+  "id": 3,
+  "name": "Sand",
+  "battleBack": "sand"
+ },
+ {
+  "id": 4,
+  "name": "Rock",
+  "battleBack": "rocky"
+ },
+ {
+  "id": 5,
+  "name": "DeepWater",
+  "surf": true,
+  "fish": true,
+  "dive": true,
+  "battleBack": "water"
+ },
+ {
+  "id": 6,
+  "name": "StillWater",
+  "surf": true,
+  "fish": true,
+  "reflections": true,
+  "battleBack": "water"
+ },
+ {
+  "id": 7,
+  "name": "Water",
+  "surf": true,
+  "fish": true,
+  "battleBack": "water"
+ },
+ {
+  "id": 8,
+  "name": "Waterfall",
+  "surf": true,
+  "waterfall": true
+ },
+ {
+  "id": 9,
+  "name": "WaterfallCrest",
+  "surf": true,
+  "fish": true,
+  "waterfallCrest": true
+ },
+ {
+  "id": 10,
+  "name": "TallGrass",
+  "wildEncounters": true,
+  "doubleEncounters": true,
+  "hidesLowerBody": true,
+  "mustWalk": true,
+  "battleBack": "grass"
+ },
+ {
+  "id": 11,
+  "name": "UnderwaterGrass",
+  "wildEncounters": true,
+  "battleBack": "underwater"
+ },
+ {
+  "id": 12,
+  "name": "Ice",
+  "slide": true,
+  "battleBack": "ice"
+ },
+ {
+  "id": 13,
+  "name": "Neutral",
+  "ignorePassability": true
+ },
+ {
+  "id": 14,
+  "name": "SootGrass",
+  "wildEncounters": true,
+  "grassRustle": true,
+  "battleBack": "grass"
+ },
+ {
+  "id": 15,
+  "name": "Bridge",
+  "bridge": true
+ },
+ {
+  "id": 16,
+  "name": "Puddle",
+  "reflections": true
+ },
+ {
+  "id": 17,
+  "name": "NoEffect"
+ }
+]
